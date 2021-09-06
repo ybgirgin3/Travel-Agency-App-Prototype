@@ -7,6 +7,8 @@ import StackNavigator from "./components/StackNavigator";
 
 const Tab = createBottomTabNavigator();
 
+// multiple stack: https://medium.com/swlh/react-native-screens-using-state-20825ba5cce2
+
 export default function App() {
   return (
     <NavigationContainer>

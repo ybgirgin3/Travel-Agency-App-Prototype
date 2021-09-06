@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,21 +7,32 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
-
-import colors from "../assets/colors/colors";
-import Feather from "react-native-vector-icons/Feather";
-import Entypo from "react-native-vector-icons/Entypo";
-import activitiesData from "../assets/data/activitiesData";
-import learnMoreData from "../assets/data/learnMoreData";
-import discoverData from "../assets/data/discoverData";
 import { SafeAreaView } from "react-native-safe-area-context";
 import profile from "../assets/images/person.png";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+
+// icons and colors
+import colors from "../assets/colors/colors";
+import Feather from "react-native-vector-icons/Feather";
+import Entypo from "react-native-vector-icons/Entypo";
+
+// local datas
+import activitiesData from "../assets/data/activitiesData";
+import learnMoreData from "../assets/data/learnMoreData";
+import discoverData from "../assets/data/discoverData";
+import DestinationScreen from "./DestinationScreen";
+
+// pages
 
 Feather.loadFont();
 Entypo.loadFont();
 
 const HomeScreen = ({ navigation }) => {
+  const [allButton, setAllButton] = useState(false);
+  const [destinationButton, setDestinationButton] = useState(false);
+  const [citiesButton, setCitiesButton] = useState(false);
+  const [experiencesButton, setExperiencesButton] = useState(false);
+
   const renderDiscoverItem = ({ item }) => {
     return (
       <TouchableOpacity
@@ -99,11 +110,16 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.discoverWrapper}>
           <Text style={styles.discoverTitle}>Discover</Text>
           <View style={styles.discoverCategoriesWrapper}>
-            <Text
-              style={[styles.discoverCategoryText, { color: colors.orange }]}>
-              All
-            </Text>
-            <Text style={styles.discoverCategoryText}>Destinations</Text>
+            <TouchableOpacity styles={styles.discoverCategoriesItem}>
+              <Text
+                style={[styles.discoverCategoryText, { color: colors.orange }]}>
+                All
+              </Text>
+            </TouchableOpacity>
+            {/* <Text style={styles.discoverCategoryText}>Destinations</Text> */}
+            <TouchableOpacity styles={styles.discoverCategoriesItem}>
+              <Text style={styles.discoverCategoryText}>Destinations</Text>
+            </TouchableOpacity>
             <Text style={styles.discoverCategoryText}>Cities</Text>
             <Text style={styles.discoverCategoryText}>Experiences</Text>
           </View>

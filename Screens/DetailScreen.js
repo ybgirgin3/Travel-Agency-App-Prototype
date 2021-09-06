@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -14,6 +14,11 @@ const height = Dimensions.get("window").height;
 
 const DetailScreen = ({ route, navigation }) => {
   const { item } = route.params;
+  const [toggle, setToggle] = useState(item.liked);
+  const toggleFunction = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground source={item.imageBig} style={styles.backgroundImage}>
@@ -31,13 +36,14 @@ const DetailScreen = ({ route, navigation }) => {
         </View>
       </ImageBackground>
       <View style={styles.descriptionWrapper}>
-        <View style={styles.heartWrapper}>
+        <TouchableOpacity style={styles.heartWrapper} activeOpacity={0.5}>
           <Entypo
             name="heart"
             size={32}
-            color={item.liked ? colors.orange : colors.gray}
+            color={toggle ? colors.orange : colors.gray}
+            onPress={() => toggleFunction()}
           />
-        </View>
+        </TouchableOpacity>
         <View style={styles.descriptionTextWrapper}>
           <Text style={styles.descriptionTitle}>Description</Text>
           <Text style={styles.descriptionText}>{item.description}</Text>

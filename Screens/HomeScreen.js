@@ -20,7 +20,6 @@ import Entypo from "react-native-vector-icons/Entypo";
 import activitiesData from "../assets/data/activitiesData";
 import learnMoreData from "../assets/data/learnMoreData";
 import discoverData from "../assets/data/discoverData";
-import DestinationScreen from "./DestinationScreen";
 
 // pages
 
@@ -28,11 +27,27 @@ Feather.loadFont();
 Entypo.loadFont();
 
 const HomeScreen = ({ navigation }) => {
+  // FOR RENDERING THE ITEM BY PRESSED BUTTON
   const [allButton, setAllButton] = useState(false);
   const [destinationButton, setDestinationButton] = useState(false);
   const [citiesButton, setCitiesButton] = useState(false);
   const [experiencesButton, setExperiencesButton] = useState(false);
+  // FOR ICON COLOR
+  const [toggle, setToggle] = useState(false);
+  const toggleFunction = () => {
+    setToggle(!toggle);
+  };
 
+  const renderDiscoverList = ({ item }) => {
+    return (
+      <View style={styles.discoverWrapper}>
+        <Text style={styles.discoverTitle}>Discover</Text>
+        <View style={styles.discoverCategoriesWrapper}></View>
+      </View>
+    );
+  };
+
+  // DISCOVER
   const renderDiscoverItem = ({ item }) => {
     return (
       <TouchableOpacity
@@ -59,6 +74,7 @@ const HomeScreen = ({ navigation }) => {
     );
   };
 
+  // ACTIVITY LIST
   const renderActivityItem = ({ item }) => {
     return (
       <View
@@ -118,7 +134,13 @@ const HomeScreen = ({ navigation }) => {
             </TouchableOpacity>
             {/* <Text style={styles.discoverCategoryText}>Destinations</Text> */}
             <TouchableOpacity styles={styles.discoverCategoriesItem}>
-              <Text style={styles.discoverCategoryText}>Destinations</Text>
+              <Text
+                style={[
+                  styles.discoverCategoryText,
+                  { color: toggle ? colors.orange : colors.gray },
+                ]}>
+                Destinations
+              </Text>
             </TouchableOpacity>
             <Text style={styles.discoverCategoryText}>Cities</Text>
             <Text style={styles.discoverCategoryText}>Experiences</Text>

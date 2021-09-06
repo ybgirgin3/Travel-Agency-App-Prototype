@@ -54,7 +54,8 @@ const styles = StyleSheet.create({
   infoWrapper: {
     borderRadius: 20,
     marginTop: -20,
-    width: width,
+    width: width, // for mobile phones
+    // width: "100%", // for web
     height: 100,
     flexDirection: "row",
     justifyContent: "space-around",

@@ -7,17 +7,16 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
+
 import colors from "../assets/colors/colors";
 import Feather from "react-native-vector-icons/Feather";
 import Entypo from "react-native-vector-icons/Entypo";
 import activitiesData from "../assets/data/activitiesData";
-import discoverCategoriesData from "../assets/data/discoverCategoriesData";
 import learnMoreData from "../assets/data/learnMoreData";
 import discoverData from "../assets/data/discoverData";
 import { SafeAreaView } from "react-native-safe-area-context";
 import profile from "../assets/images/person.png";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
-// import { createDrawerNavigator } from '@react-navigation/drawer';
 
 Feather.loadFont();
 Entypo.loadFont();

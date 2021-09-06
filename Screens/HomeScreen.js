@@ -17,6 +17,8 @@ import discoverData from '../assets/data/discoverData';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import profile from '../assets/images/person.png';
 import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+
 
 Feather.loadFont();
 Entypo.loadFont();

@@ -1,19 +1,19 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
   StyleSheet,
   ImageBackground,
   Dimensions,
-} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import colors from '../assets/colors/colors';
-import Entypo from 'react-native-vector-icons/Entypo';
+} from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import colors from "../assets/colors/colors";
+import Entypo from "react-native-vector-icons/Entypo";
 
-const height = Dimensions.get('window').height;
+const height = Dimensions.get("window").height;
 
-const DetailScreen = ({route, navigation}) => {
-  const {item} = route.params;
+const DetailScreen = ({ route, navigation }) => {
+  const { item } = route.params;
   return (
     <View style={styles.container}>
       <ImageBackground source={item.imageBig} style={styles.backgroundImage}>
@@ -32,7 +32,11 @@ const DetailScreen = ({route, navigation}) => {
       </ImageBackground>
       <View style={styles.descriptionWrapper}>
         <View style={styles.heartWrapper}>
-          <Entypo name="heart" size={32} color={colors.orange} />
+          <Entypo
+            name="heart"
+            size={32}
+            color={item.liked ? colors.orange : colors.gray}
+          />
         </View>
         <View style={styles.descriptionTextWrapper}>
           <Text style={styles.descriptionTitle}>Description</Text>
@@ -65,7 +69,7 @@ const DetailScreen = ({route, navigation}) => {
 
         <TouchableOpacity
           style={styles.buttonWrapper}
-          onPress={() => alert('You booked a trip!')}>
+          onPress={() => alert("You booked a trip!")}>
           <Text style={styles.buttonText}>Book Now</Text>
         </TouchableOpacity>
       </View>
@@ -80,7 +84,7 @@ const styles = StyleSheet.create({
   },
   backgroundImage: {
     height: height * 0.6,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   descriptionWrapper: {
     flex: 1,
@@ -97,31 +101,31 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   itemTitle: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 32,
     color: colors.white,
   },
   locationWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 5,
   },
   locationText: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 16,
     color: colors.white,
   },
   heartWrapper: {
-    position: 'absolute',
+    position: "absolute",
     right: 40,
     top: -30,
     width: 64,
     height: 64,
     backgroundColor: colors.white,
     borderRadius: 64,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -135,41 +139,41 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
   },
   descriptionTitle: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 24,
     color: colors.black,
   },
   descriptionText: {
     marginTop: 20,
-    fontFamily: 'Lato-Regular',
+    fontFamily: "Lato-Regular",
     fontSize: 16,
     color: colors.darkGray,
     height: 85,
   },
   infoWrapper: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginHorizontal: 20,
     marginTop: 20,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
   infoItem: {},
   infoTitle: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 12,
     color: colors.gray,
   },
   infoTextWrapper: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
+    flexDirection: "row",
+    alignItems: "flex-end",
     marginTop: 5,
   },
   infoText: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 24,
     color: colors.orange,
   },
   infoSubText: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 14,
     color: colors.gray,
   },
@@ -177,12 +181,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginTop: 40,
     backgroundColor: colors.orange,
-    alignItems: 'center',
+    alignItems: "center",
     paddingVertical: 15,
     borderRadius: 10,
   },
   buttonText: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 18,
     color: colors.white,
   },

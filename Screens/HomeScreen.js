@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -6,30 +6,29 @@ import {
   Image,
   ScrollView,
   ImageBackground,
-} from 'react-native';
-import colors from '../assets/colors/colors';
-import Feather from 'react-native-vector-icons/Feather';
-import Entypo from 'react-native-vector-icons/Entypo';
-import activitiesData from '../assets/data/activitiesData';
-import discoverCategoriesData from '../assets/data/discoverCategoriesData';
-import learnMoreData from '../assets/data/learnMoreData';
-import discoverData from '../assets/data/discoverData';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import profile from '../assets/images/person.png';
-import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
+} from "react-native";
+import colors from "../assets/colors/colors";
+import Feather from "react-native-vector-icons/Feather";
+import Entypo from "react-native-vector-icons/Entypo";
+import activitiesData from "../assets/data/activitiesData";
+import discoverCategoriesData from "../assets/data/discoverCategoriesData";
+import learnMoreData from "../assets/data/learnMoreData";
+import discoverData from "../assets/data/discoverData";
+import { SafeAreaView } from "react-native-safe-area-context";
+import profile from "../assets/images/person.png";
+import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 // import { createDrawerNavigator } from '@react-navigation/drawer';
-
 
 Feather.loadFont();
 Entypo.loadFont();
 
-const HomeScreen = ({navigation}) => {
-  const renderDiscoverItem = ({item}) => {
+const HomeScreen = ({ navigation }) => {
+  const renderDiscoverItem = ({ item }) => {
     return (
       <TouchableOpacity
-      activeOpacity={0.5}
+        activeOpacity={0.5}
         onPress={() =>
-          navigation.navigate('Details', {
+          navigation.navigate("Details", {
             item: item,
           })
         }>
@@ -37,7 +36,7 @@ const HomeScreen = ({navigation}) => {
           source={item.image}
           style={[
             styles.discoverItem,
-            {marginLeft: item.id === 'discover-1' ? 20 : 0},
+            { marginLeft: item.id === "discover-1" ? 20 : 0 },
           ]}
           imageStyle={styles.discoverItemImage}>
           <Text style={styles.discoverItemTitle}>{item.title}</Text>
@@ -50,13 +49,13 @@ const HomeScreen = ({navigation}) => {
     );
   };
 
-  const renderActivityItem = ({item}) => {
+  const renderActivityItem = ({ item }) => {
     return (
       <View
         style={[
           styles.activityItemWrapper,
           {
-            marginLeft: item.id === 'activities-1' ? 20 : 0,
+            marginLeft: item.id === "activities-1" ? 20 : 0,
           },
         ]}>
         <Image source={item.image} style={styles.activityItemImage} />
@@ -65,14 +64,14 @@ const HomeScreen = ({navigation}) => {
     );
   };
 
-  const renderLearnMoreItem = ({item}) => {
+  const renderLearnMoreItem = ({ item }) => {
     return (
       <ImageBackground
         source={item.image}
         style={[
           styles.learnMoreItem,
           {
-            marginLeft: item.id === 'learnMore-1' ? 20 : 0,
+            marginLeft: item.id === "learnMore-1" ? 20 : 0,
           },
         ]}
         imageStyle={styles.learnMoreItemImage}>
@@ -101,7 +100,8 @@ const HomeScreen = ({navigation}) => {
         <View style={styles.discoverWrapper}>
           <Text style={styles.discoverTitle}>Discover</Text>
           <View style={styles.discoverCategoriesWrapper}>
-            <Text style={[styles.discoverCategoryText, {color: colors.orange}]}>
+            <Text
+              style={[styles.discoverCategoryText, { color: colors.orange }]}>
               All
             </Text>
             <Text style={styles.discoverCategoryText}>Destinations</Text>
@@ -159,9 +159,9 @@ const styles = StyleSheet.create({
   menuWrapper: {
     marginHorizontal: 20,
     marginTop: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   profileImage: {
     width: 52,
@@ -174,17 +174,17 @@ const styles = StyleSheet.create({
   },
   discoverTitle: {
     marginHorizontal: 20,
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 32,
   },
   discoverCategoriesWrapper: {
     marginHorizontal: 20,
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: 20,
   },
   discoverCategoryText: {
     marginRight: 30,
-    fontFamily: 'Lato-Regular',
+    fontFamily: "Lato-Regular",
     fontSize: 16,
     color: colors.gray,
   },
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
   discoverItem: {
     width: 170,
     height: 250,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     paddingHorizontal: 10,
     paddingVertical: 15,
     marginRight: 20,
@@ -203,18 +203,18 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   discoverItemTitle: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 18,
     color: colors.white,
   },
   discoverItemLocationWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 5,
   },
   discoverItemLocationText: {
     marginLeft: 5,
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 14,
     color: colors.white,
   },
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
   },
   activitiesTitle: {
     marginHorizontal: 20,
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 24,
     color: colors.black,
   },
@@ -231,8 +231,8 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
   },
   activityItemWrapper: {
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    justifyContent: "flex-end",
+    alignItems: "center",
     marginRight: 20,
   },
   activityItemImage: {
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   },
   activityItemText: {
     marginTop: 5,
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 14,
     color: colors.gray,
   },
@@ -249,7 +249,7 @@ const styles = StyleSheet.create({
   },
   learnMoreTitle: {
     marginHorizontal: 20,
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 24,
     color: colors.black,
   },
@@ -259,14 +259,14 @@ const styles = StyleSheet.create({
   learnMoreItem: {
     width: 170,
     height: 180,
-    justifyContent: 'flex-end',
+    justifyContent: "flex-end",
     marginRight: 20,
   },
   learnMoreItemImage: {
     borderRadius: 20,
   },
   learnMoreItemText: {
-    fontFamily: 'Lato-Bold',
+    fontFamily: "Lato-Bold",
     fontSize: 18,
     color: colors.white,
     marginHorizontal: 10,

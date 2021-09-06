@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 const LikedScreen = () => {
   return (
@@ -10,13 +10,13 @@ const LikedScreen = () => {
         </View>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default LikedScreen
+export default LikedScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  }
-})
+  },
+});
